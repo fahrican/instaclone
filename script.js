@@ -129,7 +129,7 @@ function showAndIncreaseLikes(button) {
 }
 
 function createANewPost() {
-    document.querySelector('#btn2').addEventListener(CLICK_EVENT_TYPE, function () {
+    document.querySelector('#post-submit-btn').addEventListener(CLICK_EVENT_TYPE, function () {
         event.preventDefault();
 
         let form = document.getElementById('create-a-post');

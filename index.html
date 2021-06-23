@@ -18,7 +18,7 @@
                     <a class="navbar-brand" href="#">InstaClone</a>
                     <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
                             data-bs-target="#create-post-modal"
-                            data-bs-toggle="tooltip" data-bs-placement="top" title="Try to create a new Post!">
+                            data-bs-toggle="tooltip" data-bs-placement="top" title="Publish a post on the feed">
                         Create Post
                     </button>
                 </div>
@@ -26,7 +26,8 @@
         </div>
 
         <!-- Create Post -->
-        <div class="modal fade" id="create-post-modal" tabindex="-1" aria-labelledby="create-post-modal-label" aria-hidden="true">
+        <div class="modal fade" id="create-post-modal" tabindex="-1" aria-labelledby="create-post-modal-label"
+             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -48,16 +49,13 @@
                                       required></p>
                             <div class="form-group">
                                 <p>
-                                    <button type="submit" class="btn btn-success" id="btn2" value="Create"
+                                    <button type="submit" class="btn btn-success" id="post-submit-btn" value="Create"
                                             data-bs-dismiss="modal">
                                         Post
                                     </button>
                                 </p>
                             </div>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                     </div>
                 </div>
             </div>
