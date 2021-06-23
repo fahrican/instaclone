@@ -84,7 +84,7 @@ $(function () {
 
         // 4.3. Must-have: Post the data from your formular to the server:
 
-        var formData = new FormData($('#create-a-post')[0]); // Change the #idoftheform to the id of your form; The command takes all values from inputs of a form and attaches it to the variable
+        const formData = new FormData($('#create-a-post')[0]); // Change the #idoftheform to the id of your form; The command takes all values from inputs of a form and attaches it to the variable
 
         $.ajax({
             type: 'POST',
@@ -99,7 +99,7 @@ $(function () {
                 // ... You have to complete this part on your own
                 console.log('4.4.: ' + data); // This returns the message from the server - replace it with the logic to show the freshly created post
 
-                //location.reload();
+                location.reload();
             }
         });
 
