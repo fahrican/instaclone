@@ -30,8 +30,8 @@ $(function () {
         // 2.2. Must-have: Display the data:
         // ... Iterate over the "data" object (using a loop - try the forEach) and return the posts back to the page
         // ... You have to complete this part on your own
-        data.forEach(function (posts) {
-            showListOfPosts(posts);
+        data.forEach(function (userPost) {
+            showListOfPosts(userPost);
         });
 
         data.forEach(function (posts) {
@@ -100,13 +100,13 @@ $(function () {
     /* YOUR OWN IDEAS: END ----------------------------------------- */
 });
 
-function showListOfPosts(posts) {
+function showListOfPosts(userPost) {
     let postItem = `<div class="post">
-            <p style="font-weight: bold;">${posts['user']}</p>
-            <p>${posts['description']}</p>
-            <p><img src="${posts['file']}" alt="post image"/></p>
-            <p>${moment(posts['timestamp']).fromNow()}</p>
-            <p><button id="${posts['id']}" class="likebutton btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Click Me if you like this!">Likes: ${posts['likes']}</button></p>
+            <p style="font-weight: bold;">${userPost['user']}</p>
+            <p>${userPost['description']}</p>
+            <p><img src="${userPost['file']}" alt="post image"/></p>
+            <p>${moment(userPost['timestamp']).fromNow()}</p>
+            <p><button id="${userPost['id']}" class="likebutton btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Click Me if you like this!">Likes: ${userPost['likes']}</button></p>
           </div>`;
     document.querySelector('.user-posts').insertAdjacentHTML('afterbegin', postItem);
 }
