@@ -108,7 +108,7 @@ function showListOfPosts(posts) {
             <p>${posts['timestamp']}</p>
             <p><button id="${posts['id']}" class="likebutton btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Click Me if you like this!">Like this</button></p>
           </div>`;
-    document.querySelector('.post').insertAdjacentHTML('afterbegin', postItem);
+    document.querySelector('.user-posts').insertAdjacentHTML('afterbegin', postItem);
 }
 
 function showListOfUsers(posts) {
