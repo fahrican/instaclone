@@ -30,32 +30,33 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Create New Post</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">create a post</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form id="create-a-post" class="form-horizontal" role="form" method="POST">
                             <div class="form-group">
-                                <label class="col-xs-3 control-label">Username</label>
+                                <label class="col-xs-3 control-label">Your Username</label>
                                 <p><input name="user" id="user" class="form-control required" type="text"
-                                          placeholder="Username"
+                                          placeholder="Mario77"
                                           aria-label="Description" required></p>
                             </div>
+                            <label class="col-xs-3 control-label">Description</label>
                             <p><input name="description" class="form-control form-control-sm" type="text"
-                                      placeholder="Description" aria-label="Description" required></p>
+                                      placeholder="Description" aria-label="my beach vacation" required></p>
                             <p><input name="file" class="form-control form-control-sm" id="formFileSm" type="file"
                                       required></p>
                             <div class="form-group">
                                 <p>
-                                    <button type="submit" class="btn btn-primary pull-right" id="btn2" value="Create">
-                                        Submit
+                                    <button type="submit" class="btn btn-success" id="btn2" value="Create">
+                                        Post
                                     </button>
                                 </p>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
                     </div>
                 </div>
             </div>
