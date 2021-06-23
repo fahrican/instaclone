@@ -51,7 +51,7 @@ $(function () {
         // ... Execute the "like a post" functionality whenever a "like"-button is pressed
         // ... You have to complete this part on your own
 
-        document.querySelectorAll('.likebutton').forEach(function (element) {
+        document.querySelectorAll('.like-button').forEach(function (element) {
             element.addEventListener(CLICK_EVENT_TYPE, function (button) {
                 showAndIncreaseLikes(button);
             });
@@ -106,7 +106,7 @@ function showListOfPosts(userPost) {
             <p>${userPost['description']}</p>
             <p><img src="${userPost['file']}" alt="post image"/></p>
             <p>${moment(userPost['timestamp']).fromNow()}</p>
-            <p><button id="${userPost['id']}" class="likebutton btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Click Me if you like this!">Likes: ${userPost['likes']}</button></p>
+            <p><button id="${userPost['id']}" class="like-button btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Click Me if you like this!">Likes: ${userPost['likes']}</button></p>
           </div>`;
     document.querySelector('.user-posts').insertAdjacentHTML('afterbegin', postItem);
 }
