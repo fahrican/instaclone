@@ -107,7 +107,7 @@ function showListOfPosts(posts) {
             <p>${posts['description']}</p>
             <p><img src="${posts['file']}" alt="post image"/></p>
             <p>${moment(posts['timestamp']).fromNow()}</p>
-            <p><button id="${posts['id']}" class="likebutton btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Click Me if you like this!">Like this</button></p>
+            <p><button id="${posts['id']}" class="likebutton btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Click Me if you like this!">Likes: ${posts['likes']}</button></p>
           </div>`;
     document.querySelector('.user-posts').insertAdjacentHTML('afterbegin', postItem);
 }
