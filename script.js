@@ -51,23 +51,7 @@ $(function () {
 
         document.querySelectorAll('.likebutton').forEach(function (element) {
             element.addEventListener('click', function (button) {
-                console.log('button ' + button.target.id + ' clicked');
-
-
-                // 3.2. Must-have: Increase the "like"-counter on the server:
-                var postID = button.target.id; // You need to replace the postID with the ID of the post on which the button was pressed
-                console.log(postID);
-
-                $.get('https://nafra.at/adad_st2021/posts/' + postID, function (data) {
-
-                    // 3.3. Must-have: Update the template with the new like count:
-                    // ... Adapt the value of the counter next to your button with the result that is stored in data
-                    document.getElementById(button.target.id).innerHTML = "Liked! " + data;
-
-                    // ... You have to complete this part on your own
-                    console.log('3.3.: ' + data); // This returns the message from the server - replace it with the logic to show the inceased like count
-
-                });
+                showAndIncreaseLikes(button);
             });
         });
 
