@@ -1,3 +1,5 @@
+const CLICK_EVENT_TYPE = 'click'
+
 // Page (DOM) has finished loading:
 $(function () {
 
@@ -50,7 +52,7 @@ $(function () {
         // ... You have to complete this part on your own
 
         document.querySelectorAll('.likebutton').forEach(function (element) {
-            element.addEventListener('click', function (button) {
+            element.addEventListener(CLICK_EVENT_TYPE, function (button) {
                 showAndIncreaseLikes(button);
             });
         });
@@ -95,25 +97,6 @@ $(function () {
     // Nice-to-have: ...
     // ... You have to complete this part on your own (optional)
     // Example starter JavaScript for disabling form submissions if there are invalid fields
-
-// $("#createpost").validate({
-//     rules: {
-//       user: {
-//         required: true,
-//         minlength: 1
-//       },
-//       action: "required"
-//     },
-//     messages: {
-//       user: {
-//         required: "Please enter some data",
-//         minlength: "Your data must be at least 8 characters"
-//       },
-//       action: "Please provide some data"
-//     }
-//   });
-
-
     /* YOUR OWN IDEAS: END ----------------------------------------- */
 });
 
@@ -146,7 +129,7 @@ function showAndIncreaseLikes(button) {
 }
 
 function createANewPost() {
-    document.querySelector('#btn2').addEventListener('click', function () {
+    document.querySelector('#btn2').addEventListener(CLICK_EVENT_TYPE, function () {
         event.preventDefault();
 
         let form = document.getElementById('create-a-post');
