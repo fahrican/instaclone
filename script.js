@@ -112,8 +112,8 @@ function showListOfPosts(posts) {
 }
 
 function showListOfUsers(posts) {
-    let user = `<div id="users"><p style="font-weight: bold;">${posts['user']}</p></div>`;
-    document.querySelector('#users').insertAdjacentHTML('afterbegin', user);
+    let user = `<div id="user-names"><p style="font-weight: bold;">${posts['user']}</p></div>`;
+    document.querySelector('#user-names').insertAdjacentHTML('afterbegin', user);
 }
 
 function showAndIncreaseLikes(button) {
