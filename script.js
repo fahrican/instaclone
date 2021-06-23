@@ -32,7 +32,6 @@ $(function () {
         // ... You have to complete this part on your own
         data.forEach(function (posts) {
             showListOfPosts(posts);
-            console.log('test1: ' + moment(posts['timestamp']).fromNow())
         });
 
         data.forEach(function (posts) {
