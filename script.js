@@ -2,7 +2,7 @@
 $(function () {
 
     /* 1. API-KEY: START ----------------------------------------
-		- Purpose: Send the API key to authenticate with the Server
+    - Purpose: Send the API key to authenticate with the Server
         - Remark: Do not touch this
     ------------------------------------------------------------- */
 
@@ -19,7 +19,7 @@ $(function () {
     /* 2. FETCH POSTS: START ------------------------------------
         - Purpose: Fetch and display all posts from the server
         - Remark: You have to complete this part on your own
-		- Task: Chapter 3.3.1 - Task #3
+    - Task: Chapter 3.3.1 - Task #3
     ------------------------------------------------------------- */
 
     // 2.1. Must-have: Fetch the data from the server:
@@ -48,26 +48,46 @@ $(function () {
         // 3.1. Must-have: Like button was pressed:
         // ... Execute the "like a post" functionality whenever a "like"-button is pressed
         // ... You have to complete this part on your own
+
         document.querySelectorAll('.likebutton').forEach(function (element) {
             element.addEventListener('click', function (button) {
-                showAndIncreaseLikes(button);
+                console.log('button ' + button.target.id + ' clicked');
+
+
+                // 3.2. Must-have: Increase the "like"-counter on the server:
+                var postID = button.target.id; // You need to replace the postID with the ID of the post on which the button was pressed
+                console.log(postID);
+
+                $.get('https://nafra.at/adad_st2021/posts/' + postID, function (data) {
+
+                    // 3.3. Must-have: Update the template with the new like count:
+                    // ... Adapt the value of the counter next to your button with the result that is stored in data
+                    document.getElementById(button.target.id).innerHTML = "Liked! " + data;
+
+                    // ... You have to complete this part on your own
+                    console.log('3.3.: ' + data); // This returns the message from the server - replace it with the logic to show the inceased like count
+
+                });
             });
         });
+
     });
+
     /* LIKE POSTS: END ----------------------------------------- */
 
 
     /* 4. CREATE POSTS: START ------------------------------------
         - Purpose: Create a post
         - Remark: You have to complete this part on your own
-        - Task: Chapter 3.3.1 - Task #5
+    - Task: Chapter 3.3.1 - Task #5
     -------------------------------------------------------------- */
 
-// 4.1. Must-have: The create form was submitted:
+    // 4.1. Must-have: The create form was submitted:
     // ... Execute the "create a post" logic (below) whenever the "create"-form was submitted
     // ... Don't forget to prevent the form from submitting (forcing a refresh): event.preventDefault();
     // ... You have to complete this part on your own
     document.querySelector('#btn2').addEventListener('click', function () {
+        console.log('Create clicked');
         event.preventDefault();
 
         let form = document.getElementById('create-a-post');
@@ -80,7 +100,7 @@ $(function () {
 
         // 4.3. Must-have: Post the data from your formular to the server:
 
-        const formData = new FormData($('#create-a-post')[0]); // Change the #idoftheform to the id of your form; The command takes all values from inputs of a form and attaches it to the variable
+        var formData = new FormData($('#create-a-post')[0]); // Change the #idoftheform to the id of your form; The command takes all values from inputs of a form and attaches it to the variable
 
         $.ajax({
             type: 'POST',
@@ -100,14 +120,13 @@ $(function () {
         });
 
     });
-
     /* CREATE POSTS: END ----------------------------------------- */
 
 
     /* 5. CREATE COMMENTS: START ------------------------------------
         - Purpose: Comment a post
         - Remark: This is optional but you have to complete this part on your own
-        - Task: Chapter 3.3.2 - Task #1
+    - Task: Chapter 3.3.2 - Task #1
     ----------------------------------------------------------------- */
 
     // Nice-to-have: ...
@@ -119,11 +138,30 @@ $(function () {
     /* 6. YOUR OWN IDEAS: START ------------------------------------
         - Purpose: Your own purpose
         - Remark: This is optional but you have to complete this part on your own
-        - Task: Chapter 3.3.2 - Task #4
+    - Task: Chapter 3.3.2 - Task #4
     ---------------------------------------------------------------- */
 
     // Nice-to-have: ...
     // ... You have to complete this part on your own (optional)
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+
+// $("#createpost").validate({
+//     rules: {
+//       user: {
+//         required: true,
+//         minlength: 1
+//       },
+//       action: "required"
+//     },
+//     messages: {
+//       user: {
+//         required: "Please enter some data",
+//         minlength: "Your data must be at least 8 characters"
+//       },
+//       action: "Please provide some data"
+//     }
+//   });
+
 
     /* YOUR OWN IDEAS: END ----------------------------------------- */
 });
