@@ -101,12 +101,14 @@ $(function () {
 });
 
 function showListOfPosts(userPost) {
+    let comment = displayAllComments(userPost['comments']);
     let postItem = `<div class="post">
             <p style="font-weight: bold;">${userPost['user']}</p>
             <p>${userPost['description']}</p>
             <p><img src="${userPost['file']}" alt="post image"/></p>
             <p>${moment(userPost['timestamp']).fromNow()}</p>
             <p><button id="${userPost['id']}" class="like-button btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Click Me if you like this!">Likes: ${userPost['likes']}</button></p>
+            <p>Comments: ${comment}</p>
           </div>`;
     document.querySelector('.user-posts').insertAdjacentHTML('afterbegin', postItem);
 }
@@ -157,4 +159,17 @@ function createANewPost() {
         });
 
     });
+}
+
+function displayAllComments(userComments) {
+    let commentText1 = "";
+    if (userComments != null) {
+        userComments.forEach(function (comment) {
+            if (comment != null && comment.text != null && comment.text !== "") {
+                console.log('comments2: ' + comment.text);
+                commentText1 = comment.text + " ";
+                return commentText1.toString();
+            }
+        });
+    }
 }
