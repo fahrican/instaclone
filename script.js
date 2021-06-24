@@ -72,7 +72,7 @@ $(function () {
     // ... Execute the "create a post" logic (below) whenever the "create"-form was submitted
     // ... Don't forget to prevent the form from submitting (forcing a refresh): event.preventDefault();
     // ... You have to complete this part on your own
-    createANewPost();
+    createNewPost();
     /* CREATE POSTS: END ----------------------------------------- */
 
 
@@ -121,7 +121,7 @@ function showAndIncreaseLikes(button) {
     });
 }
 
-function createANewPost() {
+function createNewPost() {
     document.querySelector('#post-submit-btn').addEventListener(CLICK_EVENT_TYPE, function () {
         event.preventDefault();
 
