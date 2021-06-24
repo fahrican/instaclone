@@ -76,18 +76,6 @@ $(function () {
     /* CREATE POSTS: END ----------------------------------------- */
 
 
-    /* 5. CREATE COMMENTS: START ------------------------------------
-        - Purpose: Comment a post
-        - Remark: This is optional but you have to complete this part on your own
-    - Task: Chapter 3.3.2 - Task #1
-    ----------------------------------------------------------------- */
-
-    // Nice-to-have: ...
-    // ... You have to complete this part on your own (optional)
-
-    /* CREATE COMMENTS: END ----------------------------------------- */
-
-
     /* 6. YOUR OWN IDEAS: START ------------------------------------
         - Purpose: Your own purpose
         - Remark: This is optional but you have to complete this part on your own
@@ -176,36 +164,38 @@ function displayAllComments(userComments) {
     return postComment;
 }
 
+
+/* 5. CREATE COMMENTS: START ------------------------------------
+- Purpose: Comment a post
+- Remark: This is optional but you have to complete this part on your own
+- Task: Chapter 3.3.2 - Task #1
+----------------------------------------------------------------- */
 function commentPost(postID) {
     document.querySelector('.comment-button').addEventListener(CLICK_EVENT_TYPE, function () {
         event.preventDefault();
 
         console.log('post id: ' + postID);
-        /*
-                let form = document.getElementById('comment-a-post');
-                let user = form.elements[0];
-                let description = form.elements[1];
-                let file = form.elements[2];
-                // 4.3. Must-have: Post the data from your formular to the server:
+        let form = document.getElementById('comment-a-post');
+        let comment = form.elements[0];
+        console.log('form.elements[0]: ' + comment);
 
-                const formData = new FormData($('#create-a-post')[0]); // Change the #idoftheform to the id of your form; The command takes all values from inputs of a form and attaches it to the variable
+        const formData = new FormData($('#comment-a-post')[0]);
+        console.log('formData: ' + formData);
 
-                $.ajax({
-                    type: 'POST',
-                    url: 'https://nafra.at/adad_st2021/posts/' + postID,
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function (data) {
-
-                        // 4.4. Must-have: Update the template with the new post:
-                        // ... You have created a post, now display it on the webpage
-                        // ... You have to complete this part on your own
-                        console.log('4.4.: ' + data); // This returns the message from the server - replace it with the logic to show the freshly created post
-                        location.reload();
-                    }
-                });*/
+        /*  $.ajax({
+              type: 'POST',
+              url: 'https://nafra.at/adad_st2021/posts/' + postID,
+              data: formData,
+              processData: false,
+              contentType: false,
+              success: function (data) {
+                  console.log('comment post: ' + data);
+                  location.reload();
+              }
+          });*/
 
     });
 }
+
+/* CREATE COMMENTS: END ----------------------------------------- */
 
