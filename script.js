@@ -161,15 +161,15 @@ function createANewPost() {
 }
 
 function displayAllComments(userComments) {
-    var commentText1 = "";
+    let postComment = "no comment yet";
     if (userComments != null) {
         userComments.forEach(function (comment) {
             if (comment != null && comment.text != null && comment.text !== "") {
-                commentText1 = comment.text + " ";
-                console.log('comments2: ' + commentText1);
+                postComment = comment.text + " ";
+                console.log('comments2: ' + postComment);
             }
         });
     }
-    console.log('comments3: ' + commentText1);
-    return commentText1;
+    console.log('comments3: ' + postComment);
+    return postComment;
 }
