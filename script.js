@@ -107,9 +107,13 @@ function showListOfPosts(userPost) {
             <p><img src="${userPost['file']}" alt="post image"/></p>
             <p>${moment(userPost['timestamp']).fromNow()}</p>
             <p><button id="${userPost['id']}" class="like-button btn btn-outline-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Click Me if you like this!">Likes: ${userPost['likes']}</button></p>
-            <span class="input-group-text">Comments: ${displayAllComments(userPost['comments'])}</span>
+            <div>
+                <span class="input-group-text">Comments: ${displayAllComments(userPost['comments'])}</span>
+                <button class="comment-button btn btn-outline-success">comment</button>
+            </div>
           </div>`;
     document.querySelector('.user-posts').insertAdjacentHTML('afterbegin', postItem);
+    commentPost(userPost['id']);
 }
 
 function showListOfUsers(posts) {
@@ -166,10 +170,42 @@ function displayAllComments(userComments) {
         userComments.forEach(function (comment) {
             if (comment != null && comment.text != null && comment.text !== "") {
                 postComment = comment.text + " ";
-                console.log('comments2: ' + postComment);
             }
         });
     }
-    console.log('comments3: ' + postComment);
     return postComment;
 }
+
+function commentPost(postID) {
+    document.querySelector('.comment-button').addEventListener(CLICK_EVENT_TYPE, function () {
+        event.preventDefault();
+
+        console.log('post id: ' + postID);
+        /*
+                let form = document.getElementById('comment-a-post');
+                let user = form.elements[0];
+                let description = form.elements[1];
+                let file = form.elements[2];
+                // 4.3. Must-have: Post the data from your formular to the server:
+
+                const formData = new FormData($('#create-a-post')[0]); // Change the #idoftheform to the id of your form; The command takes all values from inputs of a form and attaches it to the variable
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'https://nafra.at/adad_st2021/posts/' + postID,
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+
+                        // 4.4. Must-have: Update the template with the new post:
+                        // ... You have created a post, now display it on the webpage
+                        // ... You have to complete this part on your own
+                        console.log('4.4.: ' + data); // This returns the message from the server - replace it with the logic to show the freshly created post
+                        location.reload();
+                    }
+                });*/
+
+    });
+}
+
