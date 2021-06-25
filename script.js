@@ -92,7 +92,7 @@ function showListOfPosts(userPost) {
     let postItem = `<div class="post">
             <p style="font-weight: bold;">${userPost['user']}</p>
             <p>${userPost['description']}</p>
-            <p><img src="${userPost['file']}" alt="post image"/></p>
+            <p><img width="700" height="422" src="${userPost['file']}" alt="post image"/></p>
             <p>${moment(userPost['timestamp']).fromNow()}</p>
             <p><button id="${userPost['id']}" class="like-button btn btn-outline-dark" data-bs-toggle="tooltip" data-bs-placement="top" title="Click Me if you like this!">Likes: ${userPost['likes']}</button></p>
             <div>
@@ -140,7 +140,7 @@ function createNewPost() {
             processData: false,
             contentType: false,
             success: function (data) {
-
+                resizeImage(file, 150);
                 // 4.4. Must-have: Update the template with the new post:
                 // ... You have created a post, now display it on the webpage
                 // ... You have to complete this part on your own
@@ -198,4 +198,36 @@ function commentPost(postID) {
 }
 
 /* CREATE COMMENTS: END ----------------------------------------- */
+
+
+function resizeImage(file, size) {
+    var fileTracker = new FileReader;
+    fileTracker.onload = function () {
+        var image = new Image();
+        image.onload = function () {
+            var canvas = document.createElement("canvas");
+            if (image.width > size) {
+                image.height *= size / image.width;
+                image.width = size;
+            }
+            var ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            canvas.width = image.width;
+            canvas.height = image.height;
+            ctx.drawImage(image, 0, 0, image.width, image.height);
+            //callback(canvas.toDataURL("image/png"));
+        };
+        image.src = this.result;
+    }
+
+    //fileTracker.readAsDataURL(file);
+
+    fileTracker.onabort = function () {
+        alert("The upload was aborted.");
+    }
+
+    fileTracker.onerror = function () {
+        alert("An error occured while reading the file.");
+    }
+}
 
