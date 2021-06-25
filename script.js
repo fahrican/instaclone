@@ -153,11 +153,11 @@ function createNewPost() {
 }
 
 function displayAllComments(userComments) {
-    let postComment = "no comment yet";
+    let postComment = "";
     if (userComments != null) {
         userComments.forEach(function (comment) {
             if (comment != null && comment.text != null && comment.text !== "") {
-                postComment = comment.text + " ";
+                postComment += comment.text + " ";
             }
         });
     }
