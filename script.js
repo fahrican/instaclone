@@ -132,7 +132,7 @@ function createNewPost() {
         // 4.3. Must-have: Post the data from your formular to the server:
 
         const formData = new FormData($('#create-a-post')[0]); // Change the #idoftheform to the id of your form; The command takes all values from inputs of a form and attaches it to the variable
-
+        //resizePicture(file);
         $.ajax({
             type: 'POST',
             url: 'https://nafra.at/adad_st2021/posts/',
@@ -140,7 +140,6 @@ function createNewPost() {
             processData: false,
             contentType: false,
             success: function (data) {
-                resizePicture(file);
 
                 // 4.4. Must-have: Update the template with the new post:
                 // ... You have created a post, now display it on the webpage
