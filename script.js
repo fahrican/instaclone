@@ -1,7 +1,8 @@
-const CLICK_EVENT_TYPE = 'click'
+const CLICK_EVENT_TYPE = 'click';
+const BASE_URL_FOR_POSTS = 'https://nafra.at/adad_st2021/posts/';
 
 // Page (DOM) has finished loading:
-$(function () {
+$(() => {
 
     /* 1. API-KEY: START ----------------------------------------
     - Purpose: Send the API key to authenticate with the Server
@@ -25,16 +26,16 @@ $(function () {
     ------------------------------------------------------------- */
 
     // 2.1. Must-have: Fetch the data from the server:
-    $.getJSON('https://nafra.at/adad_st2021/posts/', function (data) {
+    $.getJSON(BASE_URL_FOR_POSTS, data => {
 
         // 2.2. Must-have: Display the data:
         // ... Iterate over the "data" object (using a loop - try the forEach) and return the posts back to the page
         // ... You have to complete this part on your own
-        data.forEach(function (userPost) {
+        data.forEach(userPost => {
             showListOfPosts(userPost);
         });
 
-        data.forEach(function (posts) {
+        data.forEach(posts => {
             showListOfUsers(posts);
         });
 
@@ -51,8 +52,8 @@ $(function () {
         // ... Execute the "like a post" functionality whenever a "like"-button is pressed
         // ... You have to complete this part on your own
 
-        document.querySelectorAll('.like-button').forEach(function (element) {
-            element.addEventListener(CLICK_EVENT_TYPE, function (button) {
+        document.querySelectorAll('.like-button').forEach(element => {
+            element.addEventListener(CLICK_EVENT_TYPE, button => {
                 showAndIncreaseLikes(button);
             });
         });
@@ -112,7 +113,7 @@ function showListOfUsers(posts) {
 function showAndIncreaseLikes(button) {
     // 3.2. Must-have: Increase the "like"-counter on the server:
     const postID = button.target.id; // You need to replace the postID with the ID of the post on which the button was pressed
-    $.get('https://nafra.at/adad_st2021/posts/' + postID, function (data) {
+    $.get(BASE_URL_FOR_POSTS + postID, data => {
         // 3.3. Must-have: Update the template with the new like count:
         // ... Adapt the value of the counter next to your button with the result that is stored in data
         document.getElementById(button.target.id).innerHTML = "Likes: " + data;
@@ -122,7 +123,7 @@ function showAndIncreaseLikes(button) {
 }
 
 function createNewPost() {
-    document.querySelector('#post-submit-btn').addEventListener(CLICK_EVENT_TYPE, function () {
+    document.querySelector('#post-submit-btn').addEventListener(CLICK_EVENT_TYPE, () => {
         event.preventDefault();
 
         let form = document.getElementById('create-a-post');
@@ -135,11 +136,11 @@ function createNewPost() {
         //resizePicture(file);
         $.ajax({
             type: 'POST',
-            url: 'https://nafra.at/adad_st2021/posts/',
+            url: BASE_URL_FOR_POSTS,
             data: formData,
             processData: false,
             contentType: false,
-            success: function (data) {
+            success: data => {
 
                 // 4.4. Must-have: Update the template with the new post:
                 // ... You have created a post, now display it on the webpage
@@ -155,7 +156,7 @@ function createNewPost() {
 function displayAllComments(userComments) {
     let postComment = "";
     if (userComments != null) {
-        userComments.forEach(function (comment) {
+        userComments.forEach(comment => {
             if (comment != null && comment.text != null && comment.text !== "") {
                 postComment += comment.text + " ";
             }
@@ -171,7 +172,7 @@ function displayAllComments(userComments) {
 - Task: Chapter 3.3.2 - Task #1
 ----------------------------------------------------------------- */
 function commentPost(postID) {
-    document.querySelector('.comment-button').addEventListener(CLICK_EVENT_TYPE, function () {
+    document.querySelector('.comment-button').addEventListener(CLICK_EVENT_TYPE, () => {
         event.preventDefault();
 
         console.log('post id: ' + postID);
@@ -209,9 +210,9 @@ function resizePicture(file) {
 
         // Load the image
         const reader = new FileReader();
-        reader.onload = function (readerEvent) {
+        reader.onload = readerEvent => {
             const image = new Image();
-            image.onload = function (imageEvent) {
+            image.onload = imageEvent => {
 
                 // Resize the image
                 let canvas = document.createElement('canvas'),
